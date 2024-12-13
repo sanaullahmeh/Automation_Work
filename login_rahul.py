@@ -31,8 +31,7 @@ class LoginFunctionality:
         )
         submit_button.click()
         time.sleep(5)
-
-driver = webdriver.Chrome()
+driver = webdriver.Edge()
 driver.maximize_window()
 try:
     loginObj = LoginFunctionality()
