@@ -2,6 +2,7 @@ from selenium_imports.common_imports import *
 class ActionsPractice:
     def WebActions(self ,driver):
         driver.get("https://webdriveruniversity.com/Actions/index.html")
+        time.sleep(2)
         actions = ActionChains(driver)
         dragged_element = WebDriverWait(driver,10).until(
             EC.element_to_be_clickable((By.XPATH,"//b[normalize-space()='DRAG ME TO MY TARGET!']"))
@@ -40,6 +41,16 @@ class ActionsPractice:
         actions.move_to_element(ThirdHover).perform()
         time.sleep(1)
         print("Third Hover Successful")
+    def ClickAndHold(self ,driver):
+        actions = ActionChains(driver)
+        Click_And_Hold_Element = WebDriverWait(driver,10).until(
+            EC.element_to_be_clickable((By.XPATH,"//p[normalize-space()='Click and Hold!']"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView()",Click_And_Hold_Element)
+        actions.click_and_hold(Click_And_Hold_Element).perform()
+        print("Click and Hold Action Performed Successfully")
+        time.sleep(4)
+
 driver = webdriver.Chrome()
 driver.maximize_window()
 try:
@@ -47,5 +58,6 @@ try:
     actionsObj.WebActions(driver)
     actionsObj.DoubleClick(driver)
     actionsObj.MouseHover(driver)
+    actionsObj.ClickAndHold(driver)
 finally:
     driver.quit()
