@@ -15,7 +15,7 @@ class ActionsPractice:
         time.sleep(1)
     def DoubleClick(self ,driver):
         actions = ActionChains(driver)
-        DoublleClick =WebDriverWait(driver , 10).until(
+        DoublleClick = WebDriverWait(driver , 10).until(
             EC.element_to_be_clickable((By.XPATH,"//div[@id='double-click']"))
         )
         actions.double_click(DoublleClick).perform()
