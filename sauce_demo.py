@@ -8,7 +8,7 @@ class SauceDemo:
         )
         user_name.clear()
         user_name.send_keys("standard_user")
-        time.sleep(2)
+        time.sleep(1)
         password = WebDriverWait(driver,10).until(
             EC.element_to_be_clickable((By.XPATH,"//input[@id='password']"))
         )
@@ -36,12 +36,13 @@ class SauceDemo:
             EC.element_to_be_clickable((By.XPATH,"//button[@id='add-to-cart-sauce-labs-backpack']"))
         )
         product1.click()
+        time.sleep(1)
         product2 = WebDriverWait(driver,10).until(
             EC.element_to_be_clickable((By.XPATH,"//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']"))
         )
         driver.execute_script("arguments[0].scrollIntoView()" , product2)
         product2.click()
-        time.sleep(2)
+        time.sleep(1)
         print("Products Added Successfully to Cart")
         add_to_cart = WebDriverWait(driver,10).until(
             EC.element_to_be_clickable((By.XPATH,"//a[@class='shopping_cart_link']"))
