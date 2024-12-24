@@ -1,4 +1,5 @@
 from selenium_imports.common_imports import *
+from faker import Faker
 
 class AutomationExcercies:
     def SignUpProcess(self,driver):
@@ -9,11 +10,13 @@ class AutomationExcercies:
         name.clear()
         name.send_keys("Rixxer")
         time.sleep(1)
+        fake = Faker()
+        random_email = fake.email()
         email_field = WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR,"input[data-qa='signup-email']"))
         )
         email_field.clear()
-        email_field.send_keys("rixxer554@gmail.com")
+        email_field.send_keys(random_email)
         time.sleep(1)
         SignUpButton = WebDriverWait(driver , 10).until(
             EC.visibility_of_element_located((By.XPATH, "//button[normalize-space()='Signup']"))
