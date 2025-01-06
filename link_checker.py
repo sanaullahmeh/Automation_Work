@@ -4,7 +4,7 @@ class LinkChecker:
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
-        self.base_url = "https://tristatedesigns.com/"  
+        self.base_url = "Website URL"  
     def get_links(self):  
         self.driver.get(self.base_url)
         elements = self.driver.find_elements(By.TAG_NAME, "a")
