@@ -31,6 +31,7 @@ class LoginFunctionality:
         )
         submit_button.click()
         time.sleep(5)
+
 driver = webdriver.Chrome()
 driver.maximize_window()
 try:
