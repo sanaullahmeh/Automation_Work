@@ -25,6 +25,13 @@ class PracticeExcercise:
         )
         message.send_keys("This Message is Written Through Selenium Automation ")
         time.sleep(1)
+        file_upload = WebDriverWait(driver,10).until(
+            EC.element_to_be_clickable((By.XPATH,"//input[@name='upload_file']"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView()" , file_upload)
+        file_path = "Path of the File"
+        file_upload.send_keys(file_path)
+        time.sleep(2)
         submit_button = WebDriverWait(driver,10).until(
             EC.element_to_be_clickable((By.XPATH,"//input[@name='submit']"))
         )
@@ -47,3 +54,4 @@ try:
     PracObj.practice_excercise(driver)
 finally:
     driver.quit()
+
