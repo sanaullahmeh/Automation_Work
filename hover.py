@@ -10,7 +10,6 @@ class MouseHover:
         action.move_to_element(hover_element).perform()
         time.sleep(2)
         print("Mouse Hover Action Performed Successfully")
-
 driver = webdriver.Chrome()
 driver.maximize_window()
 try:

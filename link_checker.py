@@ -4,15 +4,12 @@ class LinkChecker:
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
-        self.base_url = "Enter Your Website URL"
-    
-    def get_links(self):
-        
+        self.base_url = "https://tristatedesigns.com/"  
+    def get_links(self):  
         self.driver.get(self.base_url)
         elements = self.driver.find_elements(By.TAG_NAME, "a")
         links = [element.get_attribute("href") for element in elements if element.get_attribute("href")]
         return links
-
     def check_links(self, links):
         error_links = []
         for link in links:
@@ -23,7 +20,6 @@ class LinkChecker:
             except requests.exceptions.RequestException as e:
                 error_links.append((link, str(e)))
         return error_links
-
     def run(self):
         links = self.get_links()
         print(f"Total links found on the website: {len(links)}")
@@ -32,7 +28,7 @@ class LinkChecker:
         if error_links:
             print("\nLinks with errors:")
             for url, status in error_links:
-                print(f"{url} - Error Code/Issue: {status}")
+                print(f"{url} - Error Code: {status}")
         else:
             print("No broken links found!")
         self.driver.quit()
