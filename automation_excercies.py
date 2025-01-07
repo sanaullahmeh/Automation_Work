@@ -4,13 +4,15 @@ from faker import Faker
 class AutomationExcercies:
     def SignUpProcess(self,driver):
         driver.get("https://www.automationexercise.com/signup")
+        fake = Faker()
         name = WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.XPATH,"//input[@placeholder='Name']"))
         )
+        random_name = fake.name()
         name.clear()
-        name.send_keys("Rixxer")
+        name.send_keys(random_name)
         time.sleep(1)
-        fake = Faker()
+        
         random_email = fake.email()
         email_field = WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR,"input[data-qa='signup-email']"))
@@ -150,7 +152,7 @@ class AutomationExcercies:
             EC.element_to_be_clickable((By.XPATH,"//a[@class='btn btn-primary']"))
         )
         continue_button.click()
-        time.sleep(5)
+        time.sleep(2)
         print("Automation Excercise Website Signup Page Automated Successfully")
 driver = webdriver.Chrome()
 driver.maximize_window()
