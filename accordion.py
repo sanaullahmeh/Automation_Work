@@ -17,7 +17,7 @@ class Accordion:
         if actual_text == expected_text:
             print(f"Content Matched")
         else:
-            print("Content does not matched")
+            print("Content does not match")
 
 driver = webdriver.Chrome()
 driver.maximize_window()
@@ -26,3 +26,4 @@ try:
     AccordionObj.SeeMore(driver)
 finally:
     driver.quit()
+    
