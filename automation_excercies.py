@@ -12,9 +12,7 @@ class AutomationExcercies:
         name.clear()
         name.send_keys(random_name)
         assert name.get_attribute("value") == random_name, "Name field validation failed"
-
         time.sleep(1)
-        
         random_email = fake.email()
         email_field = WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR,"input[data-qa='signup-email']"))
