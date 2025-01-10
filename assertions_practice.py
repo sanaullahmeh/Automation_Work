@@ -18,7 +18,7 @@ class AssertionPractice:
             self.driver.get("https://www.google.com/")
             google_page_title = self.driver.title
             assert "Google" in google_page_title , "Google Page Title Does not Matched"
-            print(f"Actual_Title = {google_page_title}")
+            print(f"Actual Title = {google_page_title}")
         except AssertionError as e:
             print(f"Assertion Failed - {e}")
     def close_driver(self):
