@@ -13,12 +13,16 @@ class RadioButtons:
                 assert radio_button.is_selected()
                 break
         time.sleep(2)
-
+    def hide_textbox(self,driver):
+        assert driver.find_element(By.ID,"displayed-text").is_displayed()
+        driver.find_element(By.ID,"hide-textbox").click()
+        assert not driver.find_element(By.ID,"displayed-text").is_displayed()
 driver = webdriver.Chrome()
 driver.maximize_window()
 try:
     Run = RadioButtons()
     Run.handling_radio_buttons(driver)
+    Run.hide_textbox(driver)
 finally:
     driver.quit()
                 
